@@ -104,4 +104,5 @@
             </tr>
         </table>
     </section>
+</section>
 </main>

@@ -1,4 +1,29 @@
 @include('header')
+
+<h1>Добавить новость</h1>
+
+<form method="POST" action="{{ route('createnews') }}" enctype="multipart/form-data">
+    @csrf
+
+    <div class="form-group">
+        <label>Заголовок</label>
+        <input type="text" name="title" class="form-control" required>
+    </div>
+
+    <div class="form-group">
+        <label>Контент</label>
+        <textarea name="content" class="form-control" required></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Изображение</label>
+        <input type="file" name="image" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-success">Добавить новость</button>
+</form>
+
+{{--
     <div class="container">
         <h1>Добавить новость</h1>
 
@@ -33,4 +58,5 @@
         </form>
     </div>
 
+--}}
 @include('footer')

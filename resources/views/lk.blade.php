@@ -47,21 +47,24 @@
 
     <h1>Добро пожаловать, {{ $user->name }}!</h1>
 
-    <!-- Отображение аватарки пользователя -->
-@if ($user->avatar)
-    <img src="{{ Voyager::image($user->avatar) }}" alt="Ваш аватар" style="width: 150px; height: 150px; border-radius: 50%;">
+<p><strong>Имя:</strong> {{ $user->name }}</p>
+<p><strong>Email:</strong> {{ $user->email }}</p>
+
+@if($user->avatar)
+    <img src="{{ asset('img/' . $user->avatar) }}" alt="Аватар" width="100">
 @else
-    <p>Аватарка не загружена</p>
+    <p>Аватар не загружен</p>
 @endif
 
-    <p>Это ваш личный кабинет. Здесь вы можете управлять своим профилем и просматривать свою информацию.</p>
-
+<a href="{{ route('editprofile') }}" class="btn btn-primary">Редактировать профиль</a>
 
 <form method="POST" action="{{ route('logout') }}">
     @csrf
     <button class="logoutt" type="submit">Logout</button>
 </form>
 <button class="editprofile" type="submit">Изменить профиль</button>
+<button class="createnews" type="submit">Добавить новость</button>
+
 
     @include('footer')
 

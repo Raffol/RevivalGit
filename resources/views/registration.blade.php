@@ -39,7 +39,7 @@
 
 
     <h2>Регистрация для новых участников сообщества</h2>
-    <form method="POST" action="{{ route('registration') }}">
+    <form method="POST" action="{{ route('register') }}">
         @csrf
         <label>Ваше имя:</label>
         <input type="text" name="name" value="{{ old('name') }}" placeholder="Имя" required autofocus>
