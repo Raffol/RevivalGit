@@ -15,7 +15,7 @@ class UserProfileController extends Controller
         if ($user) {
             return view('lk', compact('user'));
         } else {
-            return redirect()->route('login')->with('error', 'Вам нужно войти в систему');
+            return redirect()->route('entrance')->with('error', 'Вам нужно войти в систему');
         }
     }
 

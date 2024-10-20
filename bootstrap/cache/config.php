@@ -1,9 +1,9 @@
 <?php return array (
-  0 => 'hashing',
-  8 => 'concurrency',
-  10 => 'broadcasting',
-  11 => 'view',
-  12 => 'cors',
+  2 => 'broadcasting',
+  4 => 'concurrency',
+  5 => 'cors',
+  8 => 'hashing',
+  14 => 'view',
   'app' => 
   array (
     'name' => 'Laravel',
@@ -157,8 +157,8 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => '/Users/edk_deniseremenko/Desktop/TOP/PHP/LARAVEL/Revival/revivall/storage/framework/cache/data',
-        'lock_path' => '/Users/edk_deniseremenko/Desktop/TOP/PHP/LARAVEL/Revival/revivall/storage/framework/cache/data',
+        'path' => 'C:\\Users\\asus\\Documents\\PRGRM\\TOP\\revival\\revivall\\revivall\\revivall\\storage\\framework/cache/data',
+        'lock_path' => 'C:\\Users\\asus\\Documents\\PRGRM\\TOP\\revival\\revivall\\revivall\\revivall\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -228,8 +228,8 @@
         'port' => '3306',
         'database' => 'revivall',
         'username' => 'root',
-        'password' => 'root',
-        'unix_socket' => '/Applications/MAMP/tmp/mysql/mysql.sock',
+        'password' => '',
+        'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
         'prefix' => '',
@@ -248,7 +248,7 @@
         'port' => '3306',
         'database' => 'revivall',
         'username' => 'root',
-        'password' => 'root',
+        'password' => '',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
@@ -268,7 +268,7 @@
         'port' => '3306',
         'database' => 'revivall',
         'username' => 'root',
-        'password' => 'root',
+        'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -283,7 +283,7 @@
         'port' => '3306',
         'database' => 'revivall',
         'username' => 'root',
-        'password' => 'root',
+        'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -330,14 +330,14 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => '/Users/edk_deniseremenko/Desktop/TOP/PHP/LARAVEL/Revival/revivall/storage/app/private',
+        'root' => 'C:\\Users\\asus\\Documents\\PRGRM\\TOP\\revival\\revivall\\revivall\\revivall\\storage\\app/private',
         'serve' => true,
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => '/Users/edk_deniseremenko/Desktop/TOP/PHP/LARAVEL/Revival/revivall/storage/app/public',
+        'root' => 'C:\\Users\\asus\\Documents\\PRGRM\\TOP\\revival\\revivall\\revivall\\revivall\\storage\\app/public',
         'url' => 'http://127.0.0.1:8000/storage/app/public',
         'visibility' => 'public',
         'throw' => true,
@@ -357,7 +357,7 @@
       'test' => 
       array (
         'driver' => 'local',
-        'root' => '/Users/edk_deniseremenko/Desktop/TOP/PHP/LARAVEL/Revival/revivall/public/img',
+        'root' => 'C:\\Users\\asus\\Documents\\PRGRM\\TOP\\revival\\revivall\\revivall\\revivall\\public\\img',
         'url' => 'http://127.0.0.1:8000/img',
         'visibility' => 'public',
         'throw' => false,
@@ -365,7 +365,7 @@
     ),
     'links' => 
     array (
-      '/Users/edk_deniseremenko/Desktop/TOP/PHP/LARAVEL/Revival/revivall/public/storage' => '/Users/edk_deniseremenko/Desktop/TOP/PHP/LARAVEL/Revival/revivall/storage/app/public',
+      'C:\\Users\\asus\\Documents\\PRGRM\\TOP\\revival\\revivall\\revivall\\revivall\\public\\storage' => 'C:\\Users\\asus\\Documents\\PRGRM\\TOP\\revival\\revivall\\revivall\\revivall\\storage\\app/public',
     ),
   ),
   'logging' => 
@@ -390,14 +390,14 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => '/Users/edk_deniseremenko/Desktop/TOP/PHP/LARAVEL/Revival/revivall/storage/logs/laravel.log',
+        'path' => 'C:\\Users\\asus\\Documents\\PRGRM\\TOP\\revival\\revivall\\revivall\\revivall\\storage\\logs/laravel.log',
         'level' => 'debug',
         'replace_placeholders' => true,
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => '/Users/edk_deniseremenko/Desktop/TOP/PHP/LARAVEL/Revival/revivall/storage/logs/laravel.log',
+        'path' => 'C:\\Users\\asus\\Documents\\PRGRM\\TOP\\revival\\revivall\\revivall\\revivall\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
         'replace_placeholders' => true,
@@ -462,7 +462,7 @@
       ),
       'emergency' => 
       array (
-        'path' => '/Users/edk_deniseremenko/Desktop/TOP/PHP/LARAVEL/Revival/revivall/storage/logs/laravel.log',
+        'path' => 'C:\\Users\\asus\\Documents\\PRGRM\\TOP\\revival\\revivall\\revivall\\revivall\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -538,7 +538,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => '/Users/edk_deniseremenko/Desktop/TOP/PHP/LARAVEL/Revival/revivall/resources/views/vendor/mail',
+        0 => 'C:\\Users\\asus\\Documents\\PRGRM\\TOP\\revival\\revivall\\revivall\\revivall\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -633,7 +633,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => '/Users/edk_deniseremenko/Desktop/TOP/PHP/LARAVEL/Revival/revivall/storage/framework/sessions',
+    'files' => 'C:\\Users\\asus\\Documents\\PRGRM\\TOP\\revival\\revivall\\revivall\\revivall\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -773,27 +773,6 @@
       'allow_rename' => true,
     ),
   ),
-  'hashing' => 
-  array (
-    'driver' => 'bcrypt',
-    'bcrypt' => 
-    array (
-      'rounds' => '12',
-      'verify' => true,
-    ),
-    'argon' => 
-    array (
-      'memory' => 65536,
-      'threads' => 1,
-      'time' => 4,
-      'verify' => true,
-    ),
-    'rehash_on_login' => true,
-  ),
-  'concurrency' => 
-  array (
-    'default' => 'process',
-  ),
   'broadcasting' => 
   array (
     'default' => 'log',
@@ -850,13 +829,9 @@
       ),
     ),
   ),
-  'view' => 
+  'concurrency' => 
   array (
-    'paths' => 
-    array (
-      0 => '/Users/edk_deniseremenko/Desktop/TOP/PHP/LARAVEL/Revival/revivall/resources/views',
-    ),
-    'compiled' => '/Users/edk_deniseremenko/Desktop/TOP/PHP/LARAVEL/Revival/revivall/storage/framework/views',
+    'default' => 'process',
   ),
   'cors' => 
   array (
@@ -885,6 +860,31 @@
     ),
     'max_age' => 0,
     'supports_credentials' => false,
+  ),
+  'hashing' => 
+  array (
+    'driver' => 'bcrypt',
+    'bcrypt' => 
+    array (
+      'rounds' => '12',
+      'verify' => true,
+    ),
+    'argon' => 
+    array (
+      'memory' => 65536,
+      'threads' => 1,
+      'time' => 4,
+      'verify' => true,
+    ),
+    'rehash_on_login' => true,
+  ),
+  'view' => 
+  array (
+    'paths' => 
+    array (
+      0 => 'C:\\Users\\asus\\Documents\\PRGRM\\TOP\\revival\\revivall\\revivall\\revivall\\resources\\views',
+    ),
+    'compiled' => 'C:\\Users\\asus\\Documents\\PRGRM\\TOP\\revival\\revivall\\revivall\\revivall\\storage\\framework\\views',
   ),
   'laravel-widgets' => 
   array (
