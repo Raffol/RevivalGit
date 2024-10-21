@@ -6,8 +6,6 @@ use Illuminate\Routing\Redirector;
 use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\LkController;
 use App\Http\Controllers\RegisterController;
 use App\Models\News;
 
@@ -60,42 +58,35 @@ Route::get('/lk', [App\Http\Controllers\LkController::class, 'index'])->name('lk
 Route::get('/createnews', function () {
     return view('createnews');
 });
-// Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('registration');
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('registration');
 
 // Обработка данных регистрации (POST-запрос)
-/*Route::post('/register', [RegisterController::class, 'register'])->name('register.submit');*/
+Route::post('/register', [RegisterController::class, 'register'])->name('register.submit');
 
 // Страница успешной регистрации
 Route::get('/successregistration', function () {
     return view('successregistration');
 });
-
-Route::get('/successregistration', [RegisterController::class, 'registerSuccess'])->name('register.success');
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [RegisterController::class, 'register'])->name('register.submit');
-
-Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('login', [AuthController::class, 'login']);
-//Route::post('login', [AuthController::class, 'login']);
+Route::get('/register-success', [RegisterController::class, 'registerSuccess'])->name('successregistration');
+Route::get('/auth', [AuthController::class, 'showAuthForm'])->name('auth.form');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('profile', [AuthController::class, 'updateProfile'])->name('profile.update');
 
-Route::get('/lk', [LkController::class, 'lk'])->name('lk');
-
-Route::post('lk', [AuthController::class, 'updateProfile'])->name('lk');
-Route::get('/editprofile', [App\Http\Controllers\ProfileController::class, 'edit'])->name('editprofile');
 Route::get('/lk', [App\Http\Controllers\LkController::class, 'index'])->middleware('auth')->name('lk');
-Route::post('/lk', [ProfileController::class, 'updateProfile'])->name('lk');
-Route::get('/lk', [ProfileController::class, 'showProfile'])->middleware('lk');
+Route::post('/profile/update', [ProfileController::class, 'updateProfile'])->name('profileupdate');
+
 
 Route::post('/news', [NewsController::class, 'createNews'])->name('newscreate');
-Route::get('news', [NewsController::class, 'newsindex'])->name('newsindex');
+Route::get('news', [NewsController::class, 'index'])->name('newsindex');
 
 Route::get('/news', [App\Http\Controllers\NewsController::class, 'index'])->name('newsindex');
 Route::get('/news/{id}', [App\Http\Controllers\NewsController::class, 'show'])->name('newsslider');
-//Route::get('/newsindex', [NewsController::class, 'newsindex'])->name('news.index');
-Route::get('/createnews', [NewsController::class, 'createnews'])->name('createnews'); // Страница создания новости
-Route::post('/newsindex', [NewsController::class, 'newsindex'])->name('newsindex');
-
+Route::get('/newsindex', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news/create', [NewsController::class, 'createnews'])->name('news.create'); // Страница создания новости
+Route::post('/news/store', [NewsController::class, 'newsindex'])->name('newsindex');
+Route::get('/profile', [ProfileController::class, 'showProfile'])->middleware('auth');
 
 Route::get('/news', function () {
     // Получаем все новости, отсортированные по дате создания
