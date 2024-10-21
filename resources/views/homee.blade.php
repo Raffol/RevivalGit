@@ -8,7 +8,7 @@
     <title>ИРОО Возрождение</title>
 
 </head>
-<body class="mx-auto p-4">
+<body>
    @include('header')
 <main>
     @include('content')

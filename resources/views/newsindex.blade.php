@@ -11,20 +11,7 @@
 
 </style>
 
-    <h1>Новости</h1>
-
-    @foreach($news as $newsItem)
-        <div class="news-item">
-            <h2><a href="{{ route('newsindex', $newsItem->id) }}">{{ $newsItem->title }}</a></h2>
-            <p>{{ Str::limit($newsItem->content, 150) }}</p>
-
-            @if($newsItem->image)
-                <img src="{{ asset('img/' . $newsItem->image) }}" alt="{{ $newsItem->title }}" width="100">
-            @endif
-        </div>
-    @endforeach
-
-{{--<div class="container">
+<div class="container">
     <h1>Новости</h1>
     @foreach($news as $newsItem)
         <div class="news-item">
@@ -37,7 +24,7 @@
             <hr>
         </div>
     @endforeach
-</div>--}}
+</div>
 
 
 @include('footer')

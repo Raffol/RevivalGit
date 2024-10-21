@@ -6,6 +6,6 @@
         <p><strong>Автор:</strong> {{ $newsItem->author }}</p>
         <p>{{ $newsItem->content }}</p>
 
-        <a href="{{ route('newsindex') }}" class="btn btn-primary">Назад к новостям</a>
+        <a href="{{ route('news.index') }}" class="btn btn-primary">Назад к новостям</a>
     </div>
 @endsection
