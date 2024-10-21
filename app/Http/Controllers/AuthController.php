@@ -1,17 +1,35 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class AuthController extends Controller
 {
-    public function showRegisterForm()
+    // Отображение страницы с формами входа и регистрации
+    public function showAuthForm()
     {
-        return view('auth.register');
+        return view('auth');
     }
 
+    // Обработка входа
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if (Auth::attempt($request->only('email', 'password'))) {
+            return redirect()->route('homee');  // Перенаправление на главную после успешного входа
+        }
+
+        return back()->withErrors(['email' => 'Неверные учетные данные']);
+    }
+
+    // Обработка регистрации
     public function register(Request $request)
     {
         $request->validate([
@@ -26,53 +44,8 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        // Автоматический логин после регистрации
-        auth()->login($user);
+        Auth::login($user);  // Автоматически войти после регистрации
 
-        return redirect()->route('lk');
+        return redirect()->route('homee');  // Перенаправление на главную
     }
-    public function showLoginForm()
-    {
-        return view('entrance');
-    }
-
-    public function login(Request $request)
-    {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
-
-        if (auth()->attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->intended('lk');
-        }
-
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
-    }
-    public function logout(Request $request)
-    {
-        auth()->logout();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return redirect('/');
-    }
-    public function updateProfile(Request $request)
-    {
-        $user = auth()->user();
-
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
-        ]);
-
-        $user->update($request->only('name', 'email'));
-
-        return redirect()->route('profile')->with('success', 'Profile updated successfully.');
-    }
-
 }
